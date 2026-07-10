@@ -27,7 +27,7 @@ const Home = () => {
 
   const [outputScreen, setOutputScreen] = useState(false)
   const [tab, setTab] = useState(1)
-  const ai = new GoogleGenAI({ apiKey: "Your API Key" })
+  const ai = new GoogleGenAI({ apiKey: "AIzaSyAhPwArvViqja2RNAygTVAbF7naHJEvV2k" })
   const [promt, setPromt] = useState("")
   const [framwork, setFramwork] = useState(options[0])
   const [code, setCode] = useState("")
@@ -51,6 +51,10 @@ const Home = () => {
       backgroundColor: state.isFocused ? '#27272A' : '#09090B',
       color: '#FFFFFF',
       cursor: 'pointer',
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: '#FFFFFF',
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -134,7 +138,7 @@ Requirements:
           <textarea onChange={(e) => { setPromt(e.target.value) }} value={promt} className='w-full min-h-[200px] bg-[#09090B] rounded-xl mt-3 p-[10px] text-white' placeholder="Describe your component in detail and let AI code it for you."></textarea>
           <div className="flex items-center justify-between">
             <p className='text-[gray]'>Click on Generate Button to generate your code</p>
-            <button onClick={getResponse} className="generate flex items-center p-[15px] rounded-lg-border-0 bg-gradient-to-r from-purple-400 to-purple-600 mt-3 ml-auto px-[20px] gap-[10px] transition-all hover:opacity-[.8] text-white"><i><BsStars /></i>Generate</button>
+            <button onClick={getResponse} className="generate flex items-center p-[15px] rounded-lg border-0 bg-gradient-to-r from-purple-400 to-purple-600 mt-3 ml-auto px-[20px] gap-[10px] transition-all hover:opacity-[.8] text-white"><i><BsStars /></i>Generate</button>
           </div>
         </div>
         <div className="right relative mt-5 left w-[50%] h-[80vh] bg-[#141319] rounded-xl">
@@ -167,13 +171,13 @@ Requirements:
                     {
                       tab === 1 ?
                         <>
-                          <button className="copy w-[40px] h-[40px] rouded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={copyCode}><IoCopy /></button>
-                          <button className="export w-[40px] h-[40px] rouded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={downloadFile}><PiExportBold /></button>
+                          <button className="copy w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={copyCode}><IoCopy /></button>
+                          <button className="export w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={downloadFile}><PiExportBold /></button>
                         </>
                         :
                         <>
-                          <button className="copy w-[40px] h-[40px] rouded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={() => {setNewTabOpen(true)}}><ImNewTab /></button>
-                          <button className="export w-[40px] h-[40px] rouded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]"><FiRefreshCcw /></button>
+                          <button className="copy w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]" onClick={() => {setNewTabOpen(true)}}><ImNewTab /></button>
+                          <button className="export w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]"><FiRefreshCcw /></button>
                         </>
 
                     }
@@ -200,16 +204,16 @@ Requirements:
           {
             newTabOpen === true ?
             <>
-            <div className="container absolute left-0 top-0 right-0 button-0 bg-white w-screen min-h-screen overflow-auto">
+            <div className="container absolute left-0 top-0 right-0 bottom-0 bg-white w-screen min-h-screen overflow-auto">
               <div className='top text-black w-full  h-[60px] flex items-center justify-between px-[20px]'>
                 <div className='left'>
                 <p className='font-bold'>Preview</p>
                 </div>
                 <div className='right flex items-center gap-[10px]'>
-                  <button className='copy w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]' onClick={() => {newTabOpen(false) }}> <IoCloseSharp /> </button>
+                  <button className='copy w-[40px] h-[40px] rounded-xl border-[1px] border-zinc-800 flex items-center justify-center transition-all hover:bg-[#333]' onClick={() => {setNewTabOpen(false) }}> <IoCloseSharp /> </button>
                 </div>
               </div>
-            <iframe srcDoc={code} className="w-full h-full container absolute left-0 top-0 right-0 button-0 bg-white w-screen min-h-screen overflow-auto"></iframe>
+            <iframe srcDoc={code} className="w-full h-full container absolute left-0 top-0 right-0 bottom-0 bg-white w-screen min-h-screen overflow-auto"></iframe>
             </div>
             
             </>

@@ -105,7 +105,7 @@ const Navbar = () => {
       {loginOpen &&
         ReactDOM.createPortal(
           <div className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-white p-10 rounded-xl w-[400px] h-[450px]">
+            <div className="bg-white text-black p-10 rounded-xl w-[400px] h-[450px]">
               <h2 className="text-xl font-bold">Login</h2>
 
               <input
