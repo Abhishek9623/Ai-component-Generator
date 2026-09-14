@@ -27,7 +27,7 @@ const Home = () => {
 
   const [outputScreen, setOutputScreen] = useState(false)
   const [tab, setTab] = useState(1)
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyAhPwArvViqja2RNAygTVAbF7naHJEvV2k" })
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY })
   const [promt, setPromt] = useState("")
   const [framwork, setFramwork] = useState(options[0])
   const [code, setCode] = useState("")
