@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../componant/Navbar.jsx'
+import Navbar from "../componant/Navbar.jsx";
 import Select from 'react-select'
 import { BsStars } from 'react-icons/bs'
 import { HiOutlineCode } from 'react-icons/hi'
